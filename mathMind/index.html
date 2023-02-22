@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Mind</title>
+    <base href="/Users/guifendjy/Desktop/webb/mathMind/">
+    <link rel="stylesheet" href="/main.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+
+<body>
+    <header>Math Mind</header>
+    <main>
+        <div class="container">
+            <!-- game start -->
+            <section id="game-start">
+                <p class="game-description">
+                    "Without mathematics, there’s nothing you can do. Everything around you is mathematics. Everything
+                    around you is numbers."
+
+                </p>
+                <h3 class="author">Shakuntala Devi, Indian writer and mental calculator</h3>
+                <button class="start-button">start</button>
+            </section>
+            <!-- main game -->
+            <section id="game">
+                <div class="count-down">5</div>
+                <div class="calculation">ready!!!</div>
+                <div>
+                    <ul class="results">
+                        <li id="first-result"></li>
+                        <li id="second-result"></li>
+                        <li id="third-result"></li>
+                        <li id="fourth-result"></li>
+                    </ul>
+                </div>
+            </section>
+            <!-- play game again -->
+            <section class="play-game-again">
+                <p class="game-description">wanna play again? hit play.</p>
+                <button class="start-button" id="play-again">play</button>
+            </section>
+        </div>
+        <!-- score -->
+        <section class="container" id="alert-score">
+            <p>score:<span id="score"></span></p>
+            <span class="material-symbols-outlined" id="close-alert">
+                close
+            </span>
+        </section>
+    </main>
+</body>
+<script src="/main.js"></script>
+
+</html>
