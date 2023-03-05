@@ -95,32 +95,31 @@ function calculate() {
   document.querySelector(".results").style.display = "grid";
 
   // <li> result ||| default
-  // create a list of for delse ifferent numbers
+  // creates a list of different numbers
   const arr = [];
   while (arr.length < 4) {
     let randomNumber;
-    if (resultCalculation < 10) {
+    if (resultCalculation <= 10) {
       randomNumber = Math.floor(Math.random() * 10);
-    } else if (10 <= resultCalculation <= 20) {
+    } else if (resultCalculation > 10 && resultCalculation <= 20) {
       randomNumber = Math.floor(Math.random() * 20) + 10;
-    } else if (20 <= resultCalculation <= 30) {
+    } else if (resultCalculation > 20 && resultCalculation <= 30) {
       randomNumber = Math.floor(Math.random() * 30) + 20;
-    } else if (30 <= resultCalculation <= 40) {
+    } else if (resultCalculation > 30 && resultCalculation <= 40) {
       randomNumber = Math.floor(Math.random() * 40) + 30;
-    } else if (40 <= resultCalculation <= 50) {
+    } else if (resultCalculation > 40 && resultCalculation <= 50) {
       randomNumber = Math.floor(Math.random() * 50) + 40;
-    } else if (50 <= resultCalculation <= 60) {
+    } else if (resultCalculation > 50 && resultCalculation <= 60) {
       randomNumber = Math.floor(Math.random() * 60) + 50;
-    } else if (60 <= resultCalculation <= 70) {
+    } else if (resultCalculation > 60 && resultCalculation <= 70) {
       randomNumber = Math.floor(Math.random() * 70) + 60;
-    } else if (70 <= resultCalculation <= 81) {
+    } else if (resultCalculation > 70 && resultCalculation <= 81) {
       randomNumber = Math.floor(Math.random() * 81) + 70;
     } else {
-      randomNumber = Math.floor(Math.random() * 10) + 1;
+      // randomNumber = Math.floor(Math.random() * 100) + 1;
     }
 
     // whenever a switch statement is true this runs
-    if (randomNumber === resultCalculation) return;
     if (!arr.includes(randomNumber)) {
       arr.push(randomNumber);
     }
@@ -131,10 +130,10 @@ function calculate() {
     console.log(liArr[m].innerText);
   }
 
-  // display result in a random <li> and override li where the rigthResult land.
+  // li results
   let indexLiArr = Math.floor(Math.random() * liArr.length);
   liArr[indexLiArr].innerText = resultCalculation;
-  console.log("indexChosen", liArr[indexLiArr]);
+  console.log("indexChosen", liArr[indexLiArr].innerText);
   // setting the rightResult
   rightResult = liArr[indexLiArr].innerText;
 }
