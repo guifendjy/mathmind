@@ -119,7 +119,7 @@ function calculate() {
       // randomNumber = Math.floor(Math.random() * 100) + 1;
     }
 
-    // whenever a switch statement is true this runs
+    if (randomNumber === resultCalculation) continue;
     if (!arr.includes(randomNumber)) {
       arr.push(randomNumber);
     }
@@ -127,13 +127,13 @@ function calculate() {
   // add them to li-items
   for (var m = 0; m < liArr.length; m++) {
     liArr[m].innerText = arr[m];
-    console.log(liArr[m].innerText);
+    console.log(liArr[m].id, liArr[m].innerText);
   }
 
   // li results
   let indexLiArr = Math.floor(Math.random() * liArr.length);
   liArr[indexLiArr].innerText = resultCalculation;
-  console.log("indexChosen", liArr[indexLiArr].innerText);
+  console.log("indexChosen", liArr[indexLiArr]);
   // setting the rightResult
   rightResult = liArr[indexLiArr].innerText;
 }
