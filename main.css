@@ -57,6 +57,15 @@ header {
   color: darkgrey;
 }
 
+#stext {
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  color: darkorange;
+  text-transform: uppercase;
+  padding-top: 0.5em;
+  text-shadow: 1px 1px darkgray;
+}
+
 .count-down {
   padding: 0.5em;
   font-size: 1.215rem;

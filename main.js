@@ -71,6 +71,7 @@ function calculate() {
   let resultCalculation;
   console.log("round", round);
   var myCalculation = [];
+  // first number
   var firstNumber = Math.floor(Math.random() * 10);
   myCalculation[0] = firstNumber.toString();
 
@@ -78,7 +79,7 @@ function calculate() {
   let indexOperator = Math.floor(Math.random() * operator.length);
   var theOperator = operator[indexOperator];
   myCalculation[1] = theOperator;
-
+  // second number
   var secondNumber = Math.floor(Math.random() * 9 + 1);
   myCalculation[2] = secondNumber.toString();
 
@@ -90,8 +91,15 @@ function calculate() {
 
   // display current calculation
   calculation.innerText = sum;
-  resultCalculation = parseInt(eval(calculation.innerText));
+  // does the calculation, check if is integer or decimal, if decimal round places up to 3.
+  isFloat = eval(calculation.innerText);
+  if (isFloat % 1 === 0) {
+    resultCalculation = isFloat;
+  } else {
+    resultCalculation = parseFloat(isFloat).toFixed(2);
+  }
   console.log("result", resultCalculation);
+  // displays game
   document.querySelector(".results").style.display = "grid";
 
   // <li> result ||| default
@@ -173,6 +181,11 @@ function clearLiStyle() {
 function count() {
   timer--;
   countDown.innerText = timer;
+  if (timer <= 2) {
+    countDown.style.color = "red";
+  } else {
+    countDown.style.color = "black";
+  }
   if (timer === 0) {
     calculate();
   }
