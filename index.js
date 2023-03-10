@@ -18,7 +18,7 @@ submit.addEventListener("click", () => {
 function loadGame() {
   if (localStorage.getItem("username") != null) {
     document.querySelector(".container").innerText = "loading...";
-    window.location.assign("/main.html");
+    window.location.assign("main.html");
   }
 }
 
