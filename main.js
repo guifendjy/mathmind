@@ -1,4 +1,6 @@
 // select for display
+var displayUsername = document.getElementById("user-name");
+
 var gameStartButton = document.querySelector(".start-button");
 
 var countDown = document.querySelector(".count-down");
@@ -47,7 +49,12 @@ startOver.addEventListener("click", () => {
   gameStart();
 });
 
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", displayUser);
+}
+
 // variables
+var user = localStorage.getItem("username");
 var timer = 5;
 var round = 0;
 var score = 0;
@@ -59,6 +66,12 @@ var timerInterval;
 var liArr = [firstResult, secondResult, thirdResult, fourthResult];
 
 // functions
+function displayUser() {
+  if (user != null) {
+    displayUsername.innerText = "hi!" + " " + user;
+  }
+}
+
 function clear() {
   round = 0;
   score = 0;

@@ -23,12 +23,47 @@ header {
   background-color: #ccc;
   text-align: center;
   box-shadow: 0 0 50px black;
-  margin: 0.5em;
+  margin: 0.8em;
+  padding: 0.5em;
 }
 
-#game-start {
-  padding: 1em;
+.user-input label {
+  margin-bottom: 0.2em;
 }
+
+.user-input {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.user-input input {
+  border: none;
+  font-size: 1rem;
+  margin-bottom: 0.5em;
+  background-color: transparent;
+  padding: 0.4em;
+  text-align: center;
+  border-bottom: 2px solid darkgray;
+}
+input[type="submit"] {
+  border-radius: 5px;
+  background-color: lightblue;
+  transition: ease-in 0.2s;
+}
+
+.error {
+  font-size: 0.7rem;
+  color: red;
+  margin-top: -0.4rem;
+  margin-bottom: 0.5rem;
+}
+
+#user-name {
+  font-size: 1.215rem;
+  margin-bottom: 0.9em;
+}
+
 .game-description {
   font-size: 1rem;
   font-weight: 400;
