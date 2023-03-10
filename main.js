@@ -28,6 +28,7 @@ var scoreDisplay = document.querySelector("#score");
 
 // event listeners
 gameStartButton.addEventListener("click", () => {
+  displayUsername.style.display = "none";
   document.getElementById("game-start").style.display = "none";
   document.getElementById("game").style.display = "block";
   gameStart();
