@@ -25,7 +25,7 @@ function loadGame() {
 // store username in localStorage
 function userNameStorage() {
   if (userName.value != "") {
-    window.location.assign("/main.html");
+    window.location.assign("main.html");
     localStorage.setItem("username", userName.value);
   }
   if (userName.value === "") {
