@@ -26,6 +26,8 @@ var closeAlert = document.querySelector("#close-alert");
 
 var scoreDisplay = document.querySelector("#score");
 
+var ul = document.querySelector("#list-score");
+
 // event listeners
 gameStartButton.addEventListener("click", () => {
   displayUsername.style.display = "none";
@@ -63,6 +65,7 @@ answerTimer = 1;
 var operator = ["+", "-", "*", "/"];
 var rightResult;
 var timerInterval;
+var allScores = [];
 // <li> results
 var liArr = [firstResult, secondResult, thirdResult, fourthResult];
 
@@ -162,22 +165,25 @@ function calculate() {
 
 // adds a style to right or wrong question and update score
 function resultStyle(e) {
+  e.stopPropagation();
   const target = e.target;
   if (target.innerText === rightResult) {
     target.style.backgroundColor = "green";
     score += 2;
     setTimeout(() => {
       calculate();
-    }, 500);
+    }, 200);
   } else {
     target.style.backgroundColor = "red";
-    // makes it more delse ifficult
-    // score = score - 1;
+    // makes it more difficult
+    // if(score > 0){
+    // score--;
+    // }
     setTimeout(() => {
       calculate();
-    }, 500);
+    }, 200);
   }
-  console.log("answerPicked", target);
+  console.log("answerPicked", target.innerText);
   console.log("score", score);
 }
 
@@ -190,6 +196,20 @@ function clearLiStyle() {
       results[i].style.backgroundColor = "aqua";
     }
   }
+}
+
+// shows current and all previous score
+function scoreShow() {
+  alertScore.style.display = "block";
+  allScores.push(score);
+  var li = document.createElement("li");
+  // ul.appendChild(li);
+  ul.insertBefore(li, ul.firstChild);
+  for (var i = 0; i < allScores.length; i++) {
+    li.innerText = "score:" + " " + allScores[i].toString();
+    // (i + 1).toString() + " " +(before every score)
+  }
+  console.log(allScores);
 }
 
 function count() {
@@ -206,14 +226,14 @@ function count() {
 
   // amount of rounds(stops after ten rounds)
   if (round === 12) {
-    scoreDisplay.innerText = score;
-    alertScore.style.display = "flex";
+    scoreShow();
+    clearInterval(timerInterval);
+    clearLiStyle();
     clear();
     clearInterval(timerInterval);
     // hide game and show play game again
     document.getElementById("game").style.display = "none";
     document.querySelector(".play-game-again").style.display = "block";
-    clearLiStyle();
   }
 }
 
