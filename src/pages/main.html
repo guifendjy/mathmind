@@ -6,10 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Math Mind</title>
-    <!-- <base href="/Users/guifendjy/Desktop/webb/mathMind/"> -->
-    <link rel="stylesheet" href="main.css">
+    <script src="https://kit.fontawesome.com/351f3ace62.js" crossorigin="anonymous"></script>
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 </head>
 
 <body>
@@ -19,46 +19,44 @@
             <!-- game start -->
             <p id="user-name"></p>
             <section id="game-start">
-                <p class="quote">
+                <p class="quote font-size">
                 </p>
-                <h3 class="author"></h3>
+                <h3 class="author font-size"></h3>
                 <button class="start-button">start</button>
             </section>
             <!-- main game -->
             <section id="game">
                 <div id="stext">timer</div>
-                <div class="count-down">5</div>
-                <div class="calculation">ready!!!</div>
+                <div class="count-down"></div>
+                <div id="tex-input" style="font-size: 150%;" class="calculation">ready!!!</div>
                 <div>
-                    <ul class="results">
+                    <ul class="results font-size">
                         <li id="first-result"></li>
                         <li id="second-result"></li>
                         <li id="third-result"></li>
                         <li id="fourth-result"></li>
                     </ul>
+                    <button id="stop">stop</button>
                 </div>
             </section>
             <!-- play game again -->
             <section class="play-game-again">
-                <p class="game-description">wanna play again? hit play.</p>
+                <p class="game-description font-size">wanna play again? hit play.</p>
                 <button class="start-button" id="play-again">play</button>
             </section>
         </div>
         <!-- score -->
-        <section class="container score-container" id="alert-score">
+        <section class="container score-container font-size" id="alert-score">
             <div id="scores">
-                <h4 id="score-header">score</h4>
+                <h4 id="score-header">scoreboard</h4>
                 <span class="material-symbols-outlined" id="close-alert">
                     close
                 </span>
             </div>
             <ul id="list-score">
             </ul>
-
         </section>
     </main>
 </body>
-<script src="main.js"></script>
-<script src="randomQuote.js"></script>
 
 </html>

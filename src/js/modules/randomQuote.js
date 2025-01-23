@@ -1,6 +1,3 @@
-var quote = document.querySelector(".quote");
-var author = document.querySelector(".author");
-
 var Quotes = [
   {
     quote:
@@ -27,8 +24,9 @@ var Quotes = [
   },
 ];
 
-let randomQuote = Math.floor(Math.random() * Quotes.length);
-console.log(Quotes[randomQuote]);
-
-quote.innerHTML = Quotes[randomQuote].quote;
-author.innerHTML = Quotes[randomQuote].author;
+export default function randomQuote(nodes) {
+  const randomQuote = Math.floor(Math.random() * Quotes.length);
+  const [author, quote] = nodes;
+  quote.innerText = Quotes[randomQuote].quote;
+  author.innerText = Quotes[randomQuote].author;
+}

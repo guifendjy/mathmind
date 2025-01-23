@@ -5,10 +5,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Math Mind</title>
-    <link rel="stylesheet" href="main.css">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <script src="https://kit.fontawesome.com/351f3ace62.js" crossorigin="anonymous"></script>
+
+    <title>Math Mind</title>
 </head>
 
 <body>
@@ -17,19 +18,20 @@
     </header>
     <main>
         <div class="container">
+            <div id="profiles"><span>PROFILES</span><i class="fa-solid fa-sort-down"></i></div>
+            <ul id="list-profiles"></ul>
             <!-- name input -->
             <section class="user-input">
                 <!-- <form> -->
                 <label for="user-name">what's your name?</label>
                 <input type="text" id="input" value="" placeholder="enter username">
-                <p class="error"></p>
+                <p class="error-message" id="error-message"></p>
                 <input type="submit" id="submit" value="submit">
                 <!-- </form> -->
             </section>
-            <div id="main-html"></div>
+            <!-- <div id="main-html"></div> -->
         </div>
     </main>
 </body>
-<script src="index.js"></script>
 
 </html>
