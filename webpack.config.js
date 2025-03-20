@@ -10,6 +10,7 @@ module.exports = {
   },
   output: {
     // helps with cashing.clear
+    publicPath: "/mathmind/",
     filename: "[name].[contenthash].bundle.js",
     // filename: "[name].bundle.js",
     path: path.resolve(__dirname, "dist"),
