@@ -1,11 +1,12 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
-  mode: "development",
+  mode: "production",
   entry: {
-    index: path.resolve(__dirname, "./src/js/index.js"),
-    main: path.resolve(__dirname, "./src/js/main.js"),
+    index: path.resolve(__dirname, "/src/js/index.js"),
+    main: path.resolve(__dirname, "/src/js/main.js"),
   },
   output: {
     // helps with cashing.clear
@@ -18,7 +19,7 @@ module.exports = {
     rules: [
       {
         test: /\.css$/i,
-        use: ["style-loader", "css-loader"],
+        use: [MiniCssExtractPlugin.loader, "css-loader"],
       },
     ],
   },
@@ -32,14 +33,17 @@ module.exports = {
     hot: true,
   },
   plugins: [
+    new MiniCssExtractPlugin({
+      filename: "[name].[contenthash].css",
+    }),
     new HtmlWebpackPlugin({
-      title: "webpack app",
+      title: "Math Mind",
       filename: "index.html",
       template: "./src/pages/index.html",
       excludeChunks: ["main"],
     }),
     new HtmlWebpackPlugin({
-      title: "webpack app",
+      title: "Play",
       filename: "main.html",
       template: "./src/pages/main.html",
       chunks: ["main"],
@@ -47,5 +51,6 @@ module.exports = {
   ],
   optimization: {
     runtimeChunk: "single",
+    minimize: true,
   },
 };

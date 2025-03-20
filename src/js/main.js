@@ -67,7 +67,6 @@ const URLS = window.location.href;
 let params = new URL(URLS).searchParams;
 let entries = new URLSearchParams(params).entries();
 let username = Array.from(entries)[0][1];
-console.log(username);
 
 // data var contains the params sent
 let timer;
@@ -100,7 +99,6 @@ function calculate() {
     myCalculation,
     level
   );
-  console.log(resultCalculation);
   if (!isFinite(parseFloat(resultCalculation))) {
     calculate();
     return;
@@ -109,7 +107,6 @@ function calculate() {
     resultCalculation,
     level
   );
-  console.log("result", resultCalculation);
   displayCalculation(prettyDisplay);
   // show list of choices(pos results)
   document.querySelector(".results").style.display = "grid";
@@ -119,7 +116,6 @@ function calculate() {
   buttonDisabled = false;
   // increases round
   round += 1;
-  // console.log("calculate", "timer", timer, "round", round, "level", level);
 }
 
 // here we can format the calculation
@@ -157,7 +153,6 @@ let buttonDisabled = false;
 function updateScore(e) {
   e.stopPropagation();
   const target = e.target;
-  console.log();
 
   if (target.matches("li")) {
     if (buttonDisabled == true) return;
@@ -218,7 +213,6 @@ function scoreShow() {
   // hide game and show play game again
   document.getElementById("game").style.display = "none";
   document.querySelector(".play-game-again").style.display = "block";
-  console.log("scores", allScores);
 }
 
 function gameTimer() {
@@ -234,20 +228,19 @@ function gameStop() {
   if (round !== 12) return;
   round = 0;
   level++;
-  console.log("runningTimer", timer, "round", round, "level", level);
   if (level !== 4) return;
   stop();
   clearInterval(timerInterval);
   scoreShow();
   updateUserData(username, allScores);
   clearGame();
-  console.log("stopTimer", timer, "round", round, "level", level);
 }
 
 // abrupt stop
 stopGame.onclick = () => {
   clearInterval(timerInterval);
   scoreShow();
+  updateUserData(username, allScores);
   clearGame();
 };
 // clear game
@@ -268,20 +261,15 @@ function updateUserData(username, allScores) {
   let avgScore;
   const oldavgScore = getAvg.avgScore[0];
   const oldNumPoints = getAvg.avgScore[1];
-  const newAverage = allScores.reduce((a, b) => a + b) / allScores.length;
 
-  if (oldavgScore !== 0) {
-    avgScore = [
-      oldavgScore * oldNumPoints + newAverage / (oldNumPoints + 1),
-      allScores.length,
-    ];
-  } else {
-    avgScore = [
-      allScores.reduce((a, b) => a + b) / allScores.length,
-      allScores.length,
-    ];
-  }
-  avgScore = avgScore.map((num) => Math.round(num * 10) / 10);
+  const newTotalPoints = oldNumPoints + allScores.length;
+  const newTotalScore =
+    oldavgScore * oldNumPoints + allScores.reduce((a, b) => a + b, 0);
+  const newAverage = newTotalScore / newTotalPoints;
+
+  avgScore = [Math.round(newAverage * 10) / 10, newTotalPoints];
+  console.log(avgScore);
+
   let data = { username, avgScore };
   updateUserProfile(data);
 }

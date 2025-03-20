@@ -40,6 +40,8 @@ function renderProfiles() {
 
   sortedProfiles.forEach((profile) => {
     let listItem = document.createElement("li");
+    listItem.className = "profile-slot";
+
     listItem.innerHTML = `<p>username: ${profile.username} | avgscore: ${profile.avgScore[0]}</p>`;
     // create delete and edit buttons for profiles
     let buttons = document.createElement("div");

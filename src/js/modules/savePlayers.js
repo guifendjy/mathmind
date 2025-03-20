@@ -43,6 +43,7 @@ function deleteUserProfile({ username }) {
 }
 
 function updateUserProfile({ username, avgScore }) {
+  console.log(username, avgScore);
   let profiles = getUsers();
   let newProfiles = [...profiles];
   const index = newProfiles.findIndex((obj) => obj.username == username);

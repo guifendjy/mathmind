@@ -6,7 +6,9 @@
   "scripts": {
     "watch": "webpack --watch",
     "build": "webpack",
-    "dev": "webpack serve"
+    "dev": "webpack serve",
+    "predeploy": "webpack",
+    "deploy":"gh-pages -d dist"
   },
   "author": "",
   "license": "ISC",
@@ -15,7 +17,9 @@
   },
   "devDependencies": {
     "css-loader": "^6.8.1",
+    "gh-pages": "^6.3.0",
     "html-webpack-plugin": "^5.6.0",
+    "mini-css-extract-plugin": "^2.9.2",
     "style-loader": "^3.3.3",
     "webpack": "^5.89.0",
     "webpack-cli": "^5.1.4",
