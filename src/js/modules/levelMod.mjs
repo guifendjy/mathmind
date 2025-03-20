@@ -34,13 +34,11 @@ function generateCalculation(isLevel, updateTimer) {
 
 function calculateResult(calculationArray, currenLevel) {
   const expression = calculationArray.join("");
-  console.log("cal", expression);
   // update this with the mathjs library(bug result equals infinity or -infinity and it stops working)
   if (currenLevel == 0) {
     const result = eval(expression);
     let cal = math.parse(expression);
     let prettyDisplay = `$${cal.toTex()}$`;
-    console.log(expression, prettyDisplay);
     return [result % 1 == 0 ? result : result.toFixed(2), prettyDisplay];
   }
   if (currenLevel == 2) {
@@ -73,7 +71,6 @@ function generateRandomResults(result, isLevel) {
       : eval(result);
   let max = (min * 10) / 10 + 8;
 
-  // console.log(min, max, checkResult);
   const randomResults = new Set();
   while (randomResults.size < 4) {
     const randomNumber = Math.floor(Math.random() * (max - min)) + min;
@@ -88,7 +85,6 @@ function generateRandomResults(result, isLevel) {
   // right answer in random spot
   const randomIndex = Math.floor(Math.random() * newRandomResults.length);
   newRandomResults[randomIndex] = isNaN(result) ? eval(result) : result;
-  console.log(newRandomResults);
 
   // only turn decimal to fraction if level is bigger than 0
   newRandomResults = newRandomResults.map((n) => {
@@ -103,7 +99,6 @@ function generateRandomResults(result, isLevel) {
       } else return n;
     }
   });
-  console.log(newRandomResults);
   return [randomIndex, newRandomResults];
 }
 
@@ -201,6 +196,5 @@ const levelFour = () => {
 // let level = 3;
 // let result = calculateResult(generateCalculation(level, 5)[0], level)[0];
 // let randomR = generateRandomResults(result, level);
-// console.log(randomR);
 
 export { generateCalculation, calculateResult, generateRandomResults };

@@ -112,7 +112,6 @@ function calculate() {
   document.querySelector(".results").style.display = "grid";
   displayRandomNumbers(randomNumbers);
   rightResult = rightResultIndex;
-  console.log(rightResult);
   buttonDisabled = false;
   // increases round
   round += 1;
@@ -185,7 +184,6 @@ function updateScore(e) {
       calculate();
     }, 300);
   }
-  console.log("score", score);
 }
 
 function clearLiStyle() {
@@ -268,7 +266,6 @@ function updateUserData(username, allScores) {
   const newAverage = newTotalScore / newTotalPoints;
 
   avgScore = [Math.round(newAverage * 10) / 10, newTotalPoints];
-  console.log(avgScore);
 
   let data = { username, avgScore };
   updateUserProfile(data);
