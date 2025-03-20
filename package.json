@@ -8,7 +8,7 @@
     "build": "webpack",
     "dev": "webpack serve",
     "predeploy": "webpack",
-    "deploy":"MM-pages -d dist"
+    "deploy": "gh-pages -d dist"
   },
   "author": "",
   "license": "ISC",
